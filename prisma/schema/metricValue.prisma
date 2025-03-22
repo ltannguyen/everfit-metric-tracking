@@ -1,0 +1,14 @@
+model MetricValue {
+  id String @id(map: "pk_metric_value") @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+
+  metricId  String     @map("metric_id") @db.Uuid
+  value     Float      @db.Real
+  unit      MetricUnit
+  isDefault Boolean    @default(false) @map("is_default")
+
+  // Relations
+  metric Metric @relation(fields: [metricId], references: [id], map: "fk_metric_value_metric")
+
+  @@unique([metricId, unit], map: "idx_metric_value_metric_unit")
+  @@map("metric_value")
+}

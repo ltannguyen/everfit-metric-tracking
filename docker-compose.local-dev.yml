@@ -1,0 +1,41 @@
+services:
+  postgresql-primary:
+    image: 'bitnami/postgresql:latest'
+    environment:
+      - POSTGRESQL_USERNAME=postgres
+      - POSTGRESQL_PASSWORD=postgres
+      - POSTGRESQL_REPLICATION_MODE=master
+      - POSTGRESQL_REPLICATION_USER=repl_user
+      - POSTGRESQL_REPLICATION_PASSWORD=repl_password
+      - POSTGRESQL_TIMEZONE=UTC
+    ports:
+      - '5432:5432'
+    networks:
+      - db-tier
+    volumes:
+      - primary_data:/bitnami/postgresql
+
+  postgresql-replica:
+    image: 'bitnami/postgresql:latest'
+    environment:
+      - POSTGRESQL_USERNAME=postgres
+      - POSTGRESQL_PASSWORD=postgres
+      - POSTGRESQL_REPLICATION_MODE=slave
+      - POSTGRESQL_REPLICATION_USER=repl_user
+      - POSTGRESQL_REPLICATION_PASSWORD=repl_password
+      - POSTGRESQL_MASTER_HOST=postgresql-primary
+      - POSTGRESQL_TIMEZONE=UTC
+    ports:
+      - '5433:5432'
+    networks:
+      - db-tier
+    volumes:
+      - replica_data:/bitnami/postgresql
+
+volumes:
+  primary_data:
+  replica_data:
+
+networks:
+  db-tier:
+    driver: bridge

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="10" failures="0" errors="0" time="3.395">
+  <testsuite name="GetMetricHandler" errors="0" failures="0" skipped="0" timestamp="2025-03-22T08:48:05" time="2.063" tests="2">
+    <testcase classname="GetMetricHandler execute should safely get metrics" name="GetMetricHandler execute should safely get metrics" time="0.01">
+    </testcase>
+    <testcase classname="GetMetricHandler execute should safely get metrics with full filter" name="GetMetricHandler execute should safely get metrics with full filter" time="0.003">
+    </testcase>
+  </testsuite>
+  <testsuite name="GetMetricsEndpoint" errors="0" failures="0" skipped="0" timestamp="2025-03-22T08:48:07" time="0.328" tests="2">
+    <testcase classname="GetMetricsEndpoint should execute query on the QueryBus" name="GetMetricsEndpoint should execute query on the QueryBus" time="0.002">
+    </testcase>
+    <testcase classname="GetMetricsEndpoint should throw error if the QueryBus throws" name="GetMetricsEndpoint should throw error if the QueryBus throws" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="MetricService" errors="0" failures="0" skipped="0" timestamp="2025-03-22T08:48:07" time="0.073" tests="2">
+    <testcase classname="MetricService getMetricValues should calculated correct value" name="MetricService getMetricValues should calculated correct value" time="0.001">
+    </testcase>
+    <testcase classname="MetricService getTypeByUnit should get correct type" name="MetricService getTypeByUnit should get correct type" time="0.001">
+    </testcase>
+  </testsuite>
+  <testsuite name="GetMetric" errors="0" failures="0" skipped="0" timestamp="2025-03-22T08:48:08" time="0.409" tests="1">
+    <testcase classname="GetMetric should safely return list of metrics" name="GetMetric should safely return list of metrics" time="0.202">
+    </testcase>
+  </testsuite>
+  <testsuite name="CreateMetricEndpoint" errors="0" failures="0" skipped="0" timestamp="2025-03-22T08:48:08" time="0.28" tests="2">
+    <testcase classname="CreateMetricEndpoint should execute query on the CommandBus" name="CreateMetricEndpoint should execute query on the CommandBus" time="0.002">
+    </testcase>
+    <testcase classname="CreateMetricEndpoint should throw error if the CommandBus throws" name="CreateMetricEndpoint should throw error if the CommandBus throws" time="0">
+    </testcase>
+  </testsuite>
+  <testsuite name="CreateMetricHandler" errors="0" failures="0" skipped="0" timestamp="2025-03-22T08:48:08" time="0.132" tests="1">
+    <testcase classname="CreateMetricHandler createMetric should safely create requested metric" name="CreateMetricHandler createMetric should safely create requested metric" time="0.005">
+    </testcase>
+  </testsuite>
+</testsuites>

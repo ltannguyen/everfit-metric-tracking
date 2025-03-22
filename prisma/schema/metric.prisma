@@ -1,0 +1,22 @@
+model Metric {
+  id String @id(map: "pk_metric") @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+
+  createdAt   DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  createdById String   @map("created_by_id") @db.Uuid
+
+  // use for ordering, meter for distance, celsius for temperature.
+  baseValue Float @map("base_value")
+
+  type         MetricType
+  date         DateTime   @db.Date
+  isLastOfDate Boolean    @default(true) @map("is_last_of_date")
+
+  // Relations
+  createdBy User          @relation("metric_created_user", fields: [createdById], references: [id], map: "fk_metric_created_user")
+  values    MetricValue[]
+
+  @@index([createdById, type], map: "idx_metric_created_user_type")
+  @@index([createdById, date], map: "idx_metric_created_user_date")
+  @@index([createdById, type, date(sort: Desc)], map: "idx_metric_created_user_type_date")
+  @@map("metric")
+}

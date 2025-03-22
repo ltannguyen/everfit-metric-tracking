@@ -1,0 +1,19 @@
+enum MetricType {
+  distance
+  temperature
+
+  @@map("metric_type")
+}
+
+enum MetricUnit {
+  meter
+  centimeter
+  inch
+  feet
+  yard
+  celsius
+  fahrenheit
+  kelvin
+
+  @@map("metric_unit")
+}

@@ -1,0 +1,30 @@
+{
+  "files.exclude": {
+    "node_modules": true,
+    "dist": true
+  },
+  "files.eol": "\n",
+  "editor.tabSize": 2,
+  "editor.renderWhitespace": "all",
+  "editor.formatOnSave": true,
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "always"
+    }
+  },
+  "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma"
+  },
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "cSpell.words": ["dbgenerated", "dtos", "stringifying", "Timestamptz"],
+  "cSpell.enableFiletypes": ["*"],
+  "cSpell.maxNumberOfProblems": 100000,
+  "typescript.tsdk": "node_modules\\typescript\\lib"
+}

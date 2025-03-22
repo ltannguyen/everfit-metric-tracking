@@ -1,0 +1,21 @@
+model User {
+  id String @id(map: "pk_user") @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+
+  createdAt   DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt   DateTime @default(now()) @updatedAt @map("updated_at") @db.Timestamptz(6)
+  createdById String?  @map("created_by_id") @db.Uuid
+  updatedById String?  @map("updated_by_id") @db.Uuid
+
+  firstName String? @map("first_name") @db.VarChar(200)
+  lastName  String? @map("last_name") @db.VarChar(200)
+
+  // Relations
+  createdBy User? @relation("user_created_user", fields: [createdById], references: [id], map: "fk_user_created_user")
+  updatedBy User? @relation("user_updated_user", fields: [updatedById], references: [id], map: "fk_user_updated_user")
+
+  metrics      Metric[] @relation("metric_created_user")
+  createdUsers User[]   @relation("user_created_user")
+  updatedUsers User[]   @relation("user_updated_user")
+
+  @@map("user")
+}
